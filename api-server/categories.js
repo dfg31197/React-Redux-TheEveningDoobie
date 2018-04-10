@@ -6,16 +6,24 @@ let db = {}
 const defaultData = {
   categories: [
       {
-        name: 'react',
-        path: 'react'
+        name: 'Politics',
+        path: 'politics',
+        imgsrc: 'http://thefederalist.com/wp-content/uploads/2016/02/trumpie-998x657.jpg'
       },
       {
-        name: 'redux',
-        path: 'redux'
+        name: 'Video Games',
+        path: 'video-games',
+        imgsrc: 'https://i.ytimg.com/vi/Zy6laZtRkcM/maxresdefault.jpg'
       },
       {
-        name: 'udacity',
-        path: 'udacity'
+        name: 'Controversy',
+        path: 'controversy',
+        imgsrc: 'https://vignette.wikia.nocookie.net/r2da/images/c/ce/IM_TRIGGERED.jpg/revision/latest/scale-to-width-down/640?cb=20170131161337'
+      },
+      {
+        name: 'Share your story',
+        path: 'shared-stories',
+        imgsrc: 'http://images.tothemaonline.com/img/path/e67e71be-2279-4d9f-8c57-e8c561d5491b_beer-drinking-1132x670.jpg'
       }
   ]
 }
