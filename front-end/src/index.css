@@ -6,9 +6,42 @@ body {
 .avatar-field{
   margin-top: 10vh;
 }
+.header,.home-header{
+  box-shadow: 0 3px 2px #777;
+}
+.home-header{
+  background-color: #C6FF00;
+  width:100%;
+}
+.home-header .title span{
+  color: #AEEA00 !important;
+}
 
+.dashboard{
+  background: rgb(255,255,255);
+  background: -moz-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(241,241,241,1) 50%, rgba(225,225,225,1) 51%, rgba(246,246,246,1) 100%);
+  background: -webkit-linear-gradient(-45deg, rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%);
+  background: linear-gradient(135deg, rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=1 );
+height: 100vh;
+}
+
+#ham-burger{
+  font-size: 6vh;
+  color: white;
+  float: right;
+  cursor: pointer;
+}
+.hamburger-control{
+  animation-name: bounceInDown;
+  animation-duration: 0.3s;
+}
+.hide-item{
+  display: none !important;
+}
 .category-cards{
   height: 40vh;
+  cursor: pointer;
   padding: 0px !important;
   margin: 3vh;
   text-align: center;
@@ -16,9 +49,13 @@ body {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
+.all-posts{
+  padding: 10px;
+}
 
 .category-cards:hover{
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    background-color: #B2FF59;
 }
 .category-cards img{
   min-height: 80%;
@@ -54,7 +91,8 @@ margin: 5px;
   margin: 0 auto;
 }
 .title{
-    font-size: 5vw;
+    font-size: 5vh;
+    padding: 2vh;
     color: #ECEFF1;
     text-shadow: 1px 1px #666;
 }
@@ -71,7 +109,7 @@ margin: 5px;
 
 }
 .title span{
-  font-size: 6vw;
+  font-size: 8vh;
   font-weight: 400;
   color: #C6FF00;
 }
@@ -91,4 +129,42 @@ margin: 5px;
 .landing-input-field input:focus{
   border-bottom: 2px groove darkgreen !important;
   transition: all 2s;
+}
+
+@keyframes bounceInDown {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -3000px, 0);
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
 }

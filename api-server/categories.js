@@ -23,7 +23,7 @@ const defaultData = {
       {
         name: 'Share your story',
         path: 'shared-stories',
-        imgsrc: 'http://images.tothemaonline.com/img/path/e67e71be-2279-4d9f-8c57-e8c561d5491b_beer-drinking-1132x670.jpg'
+        imgsrc: 'https://d3534p9h9e6ys6.cloudfront.net/cheers-beer-yoga.jpg'
       }
   ]
 }
