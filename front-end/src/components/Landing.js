@@ -21,7 +21,8 @@ class Landing extends React.Component{
     this.setState({selectedAvatar: warrior})
   }
   render(){
-    const warriors = this.props.avatarsURL
+    const warriors = this.props.session.avatarsURL
+    console.log(this.props.images.importantImagery)
     return (
 
       <div className="ui fluid container landing" style={{background: `url(${wallpaper}) center`}}>
@@ -43,7 +44,7 @@ class Landing extends React.Component{
     <div className="avatar-field ui six column doubling stackable grid container">
         {
           warriors.map((warrior,index)=><div key={`warrior${index}`} className='column warrior-img' onClick={(e)=>{this.selectThisWarrior(warrior)}}>
-          <img style={this.state.selectedAvatar == warrior?{border:`5px solid #212121`}:{}} src={warrior} />
+          <img style={this.state.selectedAvatar == warrior?{border:`5px solid #212121`}:{}} src={this.props.images.importantImagery.byId[warrior].imageURL} />
         </div>)
         }
 
@@ -56,6 +57,14 @@ class Landing extends React.Component{
   }
 }
 const matchStateToProps = (state) => {
-  return state.session
+  return {
+    session:{
+      ...state.session,
+      avatarsURL: state.images.importantImagery.allImages
+    },
+    images: {
+      ...state.images
+    }
+  }
 }
 export default connect(matchStateToProps)(Landing)

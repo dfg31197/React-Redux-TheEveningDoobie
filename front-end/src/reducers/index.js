@@ -1,12 +1,12 @@
 import {INIT_STATE} from '../actions'
 import { combineReducers } from 'redux'
-import {CAT_INIT_STATE,POSTS_INIT_STATE,SESSION_INIT} from '../actions'
+import {CAT_INIT_STATE,POSTS_INIT_STATE,SESSION_INIT,DELETE_POST} from '../actions'
 import hoigh from '../img/hoigh.jpg'
 import adolf from '../img/adolf.jpg'
 import alex from '../img/alex.jpeg'
 import doggo from '../img/doggo.jpg'
 import patriarchy from '../img/patriarchy.jpg'
-import spoderman from '../img/spoderman.png'
+import spoderman from '../img/spoderman.jpg'
 import tootinpootin from '../img/tootinpootin.jpg'
 import trump from '../img/trump.jpeg'
 import hughmungus from '../img/Hugh_mungus.png'
@@ -15,8 +15,26 @@ import ballas from '../img/ballas.jpeg'
 import hogan from '../img/hogan.jpeg'
 import cosby from '../img/cosby.jpeg'
 import pakaluPapito from '../img/pakalu.jpg'
+const ALL_IMAGES = [hoigh,adolf,alex,doggo,patriarchy,spoderman,tootinpootin,trump,hughmungus,nolife,ballas,cosby,pakaluPapito,hogan]
+const imageState = {
+  importantImagery: ALL_IMAGES.reduce((acc,img,index)=>{
+  const id = `IMG_${index}`
+      acc.byId[id]= {
+        id,
+        imageURL: img
+      }
+
+      acc.allImages = [...acc.allImages,id]
+      return acc
+
+  },{byId:{},allImages:[]})
+}
+
+const images = (state=imageState,action)=>{
+  return state
+}
 const sessionState = {
-  avatarsURL:[hoigh,adolf,alex,doggo,patriarchy,pakaluPapito,ballas,spoderman,hogan,tootinpootin,trump,hughmungus,nolife,cosby],
+  avatarsURL:'',
   name:'',
   selectedAvatar: hoigh,
   high: 'Yes',
@@ -63,6 +81,19 @@ const posts = (state={},action) => {
       acc.allPosts = [...acc.allPosts,val.id]
       return acc
     },{byId:{},allPosts:[]})
+
+    case DELETE_POST:
+    console.log(state)
+    return {
+      ...state,
+      byId:{
+        ...state.byId,
+        [action.id]:{
+          ...state.byId[action.id],
+          deleted: true
+        }
+      }
+    }
     default:
     return state
   }
@@ -76,4 +107,5 @@ export default combineReducers({
   posts,
   comments,
   session,
+  images,
 });
