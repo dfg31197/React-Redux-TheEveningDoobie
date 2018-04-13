@@ -7,20 +7,7 @@ import Landing from './Landing.js'
 import Home from './Home.js'
 import {categoryInitState,postInitState} from '../actions'
 class App extends Component {
-  componentDidMount(){
-    fetch('http://localhost:3001/categories',{ headers: { 'Authorization': 'whatever-you-want' } }).then((res)=>{
-      return res.json()
-    }).then((x)=>{
-      this.props.dispatch(categoryInitState(x))
-      return fetch('http://localhost:3001/posts',{ headers: { 'Authorization': 'whatever-you-want' } }).then((posts)=>{
-        return posts.json()
-      })
-    }).then((res)=>{
-      console.log(res)
-      this.props.dispatch(postInitState({posts:res}))
-    })
 
-  }
   render() {
     const keys = this.props.categories.allCategories
     const {byId} = this.props.categories

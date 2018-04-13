@@ -9,6 +9,13 @@ body {
 .header,.home-header{
   box-shadow: 0 3px 2px #777;
 }
+
+
+.post-details-article{
+  position: absolute !important;
+  left: 30vh;
+  font-size: 3vh;
+}
 .home-header{
   background-color: #C6FF00;
   width:100%;
@@ -70,7 +77,7 @@ body {
   max-width: 100%;
 }
 .warrior-img{
-  min-height: 140px;
+  min-height: 150px;
   max-height: 150px;
 }
 .warrior-img img{
@@ -78,6 +85,11 @@ max-width: 100%;
 max-height: 100%;
 border: 3px solid white;
 margin: 5px;
+border-radius: 5px;
+min-width: 140px;
+max-width: 140px;
+max-height: 140px;
+min-height: 140px;
 }
 
 
