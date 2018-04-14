@@ -21,9 +21,21 @@ const defaultData = {
         imgsrc: 'https://vignette.wikia.nocookie.net/r2da/images/c/ce/IM_TRIGGERED.jpg/revision/latest/scale-to-width-down/640?cb=20170131161337'
       },
       {
+        name: 'Religion',
+        path: 'religion',
+        imgsrc: 'https://ichef.bbci.co.uk/news/624/cpsprodpb/13B8/production/_84584050_3494754156_9273aff2f3_b.jpg'
+      },
+
+      {
         name: 'Share your story',
         path: 'shared-stories',
         imgsrc: 'https://d3534p9h9e6ys6.cloudfront.net/cheers-beer-yoga.jpg'
+      },
+
+      {
+        name: 'All',
+        path: 'all',
+        imgsrc: 'https://i.imgur.com/oRd0Onn.jpg'
       }
   ]
 }

@@ -3,6 +3,7 @@ import Error from './Error.js'
 import { connect } from 'react-redux'
 import dashboard from '../img/dashboard-background.jpg'
 import PostCard from './PostCard.js'
+import {sessionLogOut} from '../actions/index.js'
 class Home extends React.Component{
   state={
     displayCategory: false
@@ -12,6 +13,9 @@ toggleCategoryFilter = (e) =>{
 this.setState((prev)=>{return {displayCategory: !prev.displayCategory}})
 }
 
+logOut = () =>{
+  this.props.dispatch(sessionLogOut())
+}
   render(){
     console.log(this.props)
     const userImage = this.props.images.importantImagery.byId[this.props.session.selectedAvatar].imageURL
@@ -23,7 +27,7 @@ this.setState((prev)=>{return {displayCategory: !prev.displayCategory}})
       TheEvening
       <span className="home-doobie">Doobie</span>
       <b onClick={(e)=>{this.toggleCategoryFilter(e)}} className="header-floaters">☰</b>
-      <b onClick={(e)=>{this.toggleCategoryFilter(e)}} className="header-floaters"><i className="sign out alternate icon"></i></b>
+      <b onClick={(e)=>{this.logOut()}} className="header-floaters"><i className="sign out alternate icon"></i></b>
       <b className="header-floaters"><img src={userImage} className="small-user-image" /></b>
       </p>
 

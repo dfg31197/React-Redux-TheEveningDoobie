@@ -32,7 +32,7 @@ handleDelete = (e) =>{
         <div className="ui label"><i className="edit icon"></i>EDIT</div>
         <div className="ui label" onClick={this.handleDelete}><i className="trash icon"></i>DELETE</div>
       </div>
-      <p style={{position:'absolute',bottom:'15px',}}>{this.props.post.voteScore} Votes |{this.props.post.commentCount} Comments</p>
+      <p style={{position:'absolute',bottom:'15px',}}>{this.props.post.voteScore} Votes | {this.props.post.commentCount} Comments</p>
     </div>
   </div>
     )
