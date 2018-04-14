@@ -12,13 +12,12 @@ componentDidMount(){
       return posts.json()
     })
   }).then((res)=>{
-    console.log(res)
     this.props.dispatch(postInitState({posts:res}))
   })
 
 }
   render(){
-    return ""
+    return ''
   }
 }
 

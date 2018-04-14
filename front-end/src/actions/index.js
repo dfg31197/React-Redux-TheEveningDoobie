@@ -30,7 +30,6 @@ return {
 }
 
 const postInitState = ({posts}) => {
-  console.log(posts)
   return {
   type: POSTS_INIT_STATE,
   payload:{

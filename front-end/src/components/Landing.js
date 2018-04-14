@@ -22,14 +22,13 @@ class Landing extends React.Component{
   }
   render(){
     const warriors = this.props.session.avatarsURL
-    console.log(this.props.images.importantImagery)
     return (
 
       <div className="ui fluid container landing" style={{background: `url(${wallpaper}) center`}}>
-        <div className="header">
+        <div className="my-header">
         <p className="title">
         TheEvening
-        <span>Doobie</span>
+        <span className="home-doobie">Doobie</span>
         </p>
       </div>
 

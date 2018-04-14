@@ -20,7 +20,7 @@ handleDelete = (e) =>{
       <img src={this.props.post.avatarURL} />
     </div>
     <div className="content">
-      <Link to={`/posts/${this.props.post.id}`} className="header">{this.props.post.title}</Link>
+      <Link to={`/posts/${this.props.post.id}`} className="my-header">{this.props.post.title}</Link>
       <div className="meta">
         <span>{this.props.post.author} | {this.props.post.category}</span>
         <p></p>
@@ -40,7 +40,6 @@ handleDelete = (e) =>{
 }
 
 const matchStateToProps = (state,own) => {
-  console.log(own)
   return {
     post: {
       ...state.posts.byId[own.id],

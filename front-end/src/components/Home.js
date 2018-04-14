@@ -13,15 +13,21 @@ this.setState((prev)=>{return {displayCategory: !prev.displayCategory}})
 }
 
   render(){
+    console.log(this.props)
+    const userImage = this.props.images.importantImagery.byId[this.props.session.selectedAvatar].imageURL
     const category = this.props.categories.byId
     return (
       <div className="dashboard">
       <div className="home-header">
       <p className="title">
       TheEvening
-      <span>Doobie</span>
-      <b onClick={(e)=>{this.toggleCategoryFilter(e)}} id="ham-burger">☰</b>
+      <span className="home-doobie">Doobie</span>
+      <b onClick={(e)=>{this.toggleCategoryFilter(e)}} className="header-floaters">☰</b>
+      <b onClick={(e)=>{this.toggleCategoryFilter(e)}} className="header-floaters"><i className="sign out alternate icon"></i></b>
+      <b className="header-floaters"><img src={userImage} className="small-user-image" /></b>
       </p>
+
+
     </div>
   <div className={`ui five column doubling stackable grid fluid container ${this.state.displayCategory?'hamburger-control':'hide-item'}`}>
 {      this.props.categories.allCategories.map((cat)=>{

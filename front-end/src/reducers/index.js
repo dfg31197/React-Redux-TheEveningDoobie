@@ -12,10 +12,12 @@ import trump from '../img/trump.jpeg'
 import hughmungus from '../img/Hugh_mungus.png'
 import nolife from '../img/nolife.jpeg'
 import ballas from '../img/ballas.jpeg'
+import grade from '../img/grade.png'
 import hogan from '../img/hogan.jpeg'
 import cosby from '../img/cosby.jpeg'
+import sadchan from '../img/sadchan.jpg'
 import pakaluPapito from '../img/pakalu.jpg'
-const ALL_IMAGES = [hoigh,adolf,alex,doggo,patriarchy,spoderman,tootinpootin,trump,hughmungus,nolife,ballas,cosby,pakaluPapito,hogan]
+const ALL_IMAGES = [hoigh,adolf,alex,doggo,patriarchy,spoderman,tootinpootin,trump,hughmungus,nolife,ballas,cosby,pakaluPapito,hogan,grade,sadchan]
 const imageState = {
   importantImagery: ALL_IMAGES.reduce((acc,img,index)=>{
   const id = `IMG_${index}`
