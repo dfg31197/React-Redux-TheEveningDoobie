@@ -26,30 +26,30 @@ class Landing extends React.Component{
 
       <div className="ui fluid container landing" style={{background: `url(${wallpaper}) center`}}>
         <div className="my-header">
-        <p className="title">
-        TheEvening
-        <span className="home-doobie">Doobie</span>
-        </p>
-      </div>
+          <p className="title">
+            TheEvening
+            <span className="home-doobie">Doobie</span>
+          </p>
+        </div>
 
-      <div className="landing-input-field">
-        <div className="ui huge fluid input">
+        <div className="landing-input-field">
+          <div className="ui huge fluid input">
 
-        <input onChange={(e)=>{this.handleInput(e)}} ref={(val)=> this.name = val} type="text" placeholder="Your Name" />
+            <input onChange={(e)=>{this.handleInput(e)}} ref={(val)=> this.name = val} type="text" placeholder="Your Name" />
 
-      </div>
-    </div>
-    <h1>Choose your avatar</h1>
-    <div className="avatar-field ui six column doubling stackable grid container">
-        {
-          warriors.map((warrior,index)=><div key={`warrior${index}`} className='column warrior-img' onClick={(e)=>{this.selectThisWarrior(warrior)}}>
-          <img style={this.state.selectedAvatar == warrior?{border:`5px solid #212121`}:{}} src={this.props.images.importantImagery.byId[warrior].imageURL} />
-        </div>)
-        }
+          </div>
+        </div>
+        <h1>Choose your avatar</h1>
+        <div className="avatar-field ui six column doubling stackable grid container">
+          {
+            warriors.map((warrior,index)=><div key={`warrior${index}`} className='column warrior-img' onClick={(e)=>{this.selectThisWarrior(warrior)}}>
+              <img style={this.state.selectedAvatar == warrior?{border:`5px solid #212121`}:{}} src={this.props.images.importantImagery.byId[warrior].imageURL} />
+            </div>)
+          }
 
         </div>
         <h1 className='letsGo' onClick={(e)=>{this.goToDashboard(e)}}><span>GO</span></h1>
-        </div>
+      </div>
 
 
     );

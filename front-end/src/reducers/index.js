@@ -1,6 +1,6 @@
 import {INIT_STATE} from '../actions'
 import { combineReducers } from 'redux'
-import {CAT_INIT_STATE,POSTS_INIT_STATE,SESSION_INIT,DELETE_POST,LOG_OUT} from '../actions'
+import {CAT_INIT_STATE,POSTS_INIT_STATE,SESSION_INIT,DELETE_POST,LOG_OUT,ADD_POST} from '../actions'
 import hoigh from '../img/hoigh.jpg'
 import adolf from '../img/adolf.jpg'
 import alex from '../img/alex.jpeg'
@@ -92,6 +92,17 @@ const posts = (state={},action) => {
       return acc
     },{byId:{},allPosts:[]})
 
+    case ADD_POST:
+    return {
+      ...state,
+      byId:{
+        ...state.byId,
+        [action.payload.id]:{
+          ...action.payload
+        }
+      },
+      allPosts:[action.payload.id,...state.allPosts]
+    }
     case DELETE_POST:
     console.log(state)
     return {

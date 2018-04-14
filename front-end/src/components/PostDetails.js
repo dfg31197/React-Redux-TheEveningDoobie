@@ -15,80 +15,80 @@ class PostDetails extends React.Component{
     const userImage = this.props.images.importantImagery.byId[this.props.session.selectedAvatar].imageURL
     const published = utils.getDate(post.timestamp)
     return (<div>    <div className="article-header">
-        <p className="title">
+      <p className="title">
         TheEvening
         <span className="home-doobie">Doobie</span>
-          <b className="header-floaters"><Link to="/"><i className="home icon"></i></Link></b>
-          <b onClick={(e)=>{this.toggleCategoryFilter(e)}} className="header-floaters"><i className="edit icon"></i></b>
-          <b className="header-floaters"><img src={userImage} className="small-user-image" /></b>
-        </p>
-      </div>
+        <b className="header-floaters"><Link to="/"><i className="home icon"></i></Link></b>
+        <b onClick={(e)=>{this.toggleCategoryFilter(e)}} className="header-floaters"><i className="edit icon"></i></b>
+        <b className="header-floaters"><img src={userImage} className="small-user-image" /></b>
+      </p>
+    </div>
       <div className="ui grid fluid-container readable-article">
 
-      <div className="sixteen column row  author-info">
-        <div className="sixteen wide column">
-          <div className="item article-info"><img className="author-image" src={this.props.images.importantImagery.byId[post.avatarID].imageURL}/></div>
-          <h3>{post.author}</h3>
-        </div>
+        <div className="sixteen column row  author-info">
+          <div className="sixteen wide column">
+            <div className="item article-info"><img className="author-image" src={this.props.images.importantImagery.byId[post.avatarID].imageURL}/></div>
+            <h3>{post.author}</h3>
+          </div>
 
         </div>
         <div className="sixteen column row author-info-details effect7">
           <div className="sixteen wide column"><h1>{post.title}</h1></div>
         </div>
-      <div className="sixteen column row effect2">
-        <div className="sixteen wide column post-details-article"><div className="readable-content"><p>{post.body}</p></div>
+        <div className="sixteen column row effect2">
+          <div className="sixteen wide column post-details-article"><div className="readable-content"><p>{post.body}</p></div>
+          </div>
+        </div>
+        <div className="sixteen column row author-info-details effect7">
+          <div className="four wide column">Published on {published}</div>
+          <div className="four wide column">{post.voteScore} Votes</div>
+          <div className="four wide column">{post.commentCount} Comments</div>
+          <div className="four wide column">Upvote | Downvote</div>
         </div>
       </div>
-      <div className="sixteen column row author-info-details effect7">
-        <div className="four wide column">Published on {published}</div>
-        <div className="four wide column">{post.voteScore} Votes</div>
-        <div className="four wide column">{post.commentCount} Comments</div>
-        <div className="four wide column">Upvote | Downvote</div>
-      </div>
-    </div>
 
 
-    <div className="comment-section">
-      <div className="ui items">
-        <div className="item add-border">
-          <div className="image">
-            <img src={userImage} className="round-comment-image" />
+      <div className="comment-section">
+        <div className="ui items">
+          <div className="item add-border">
+            <div className="image">
+              <img src={userImage} className="round-comment-image" />
+            </div>
+            <div className="content">
+              <a className="header">{this.props.session.name}</a>
+              <div className="description">
+                <form className="ui reply form">
+                  <div className="field">
+                    <textarea placeholder="Write your thoughts on the article!"></textarea>
+                  </div>
+                  <div className="ui blue labeled submit icon button">
+                    <i className="icon edit"></i> Add Comment
+                  </div>
+                </form>
+              </div>
+              <div className="extra">
+              </div>
+            </div>
           </div>
-          <div className="content">
-            <a className="header">{this.props.session.name}</a>
-            <div className="description">
-               <form className="ui reply form">
-                <div className="field">
-                  <textarea placeholder="Write your thoughts on the article!"></textarea>
-                </div>
-                <div className="ui blue labeled submit icon button">
-                  <i className="icon edit"></i> Add Comment
-                </div>
-              </form>
+          <div className="item add-border">
+            <div className="image">
+              <img src={userImage} className="round-comment-image" />
             </div>
-            <div className="extra">
-            </div>
-          </div>
-        </div>
-        <div className="item add-border">
-          <div className="image">
-            <img src={userImage} className="round-comment-image" />
-          </div>
-          <div className="content">
-            <a className="header">Header</a>
-            <div className="meta">
-              <span>Description</span>
-            </div>
-            <div className="description">
-              <p></p>
-            </div>
-            <div className="extra">
+            <div className="content">
+              <a className="header">Header</a>
+              <div className="meta">
+                <span>Description</span>
+              </div>
+              <div className="description">
+                <p></p>
+              </div>
+              <div className="extra">
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
   )}
 
 render(){

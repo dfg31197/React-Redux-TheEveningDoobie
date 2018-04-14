@@ -9,12 +9,14 @@ import rootReducer from './reducers/';
 import {createStore} from 'redux'
 import Loader from './components/Loader.js'
 import PostDetails from './components/PostDetails'
+import CreatePost from './components/CreatePost'
 const store = createStore(rootReducer)
 ReactDOM.render(<Provider store={store}><BrowserRouter>
   <div>
   <Route exact path="/" component={App} />
   <Route exact path="/posts/:id" component={PostDetails} />
   <Route path="/" component={Loader} />
+  <Route exact path="/create-post" component = {CreatePost} />
   </div>
   </BrowserRouter></Provider>, document.getElementById('root'));
 registerServiceWorker();

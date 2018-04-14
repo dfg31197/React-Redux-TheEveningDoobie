@@ -219,7 +219,6 @@ function getAll (token) {
     const posts = getData(token)
     let keys = Object.keys(posts)
     let filtered_keys = keys.filter(key => !posts[key].deleted)
-    console.log(filtered_keys)
     res(filtered_keys.map(key => posts[key]))
   })
 }
@@ -227,13 +226,14 @@ function getAll (token) {
 function add (token, post) {
   return new Promise((res) => {
     let posts = getData(token)
-
+    console.log(post.title)
     posts[post.id] = {
       id: post.id,
       timestamp: post.timestamp,
       title: post.title,
       body: post.body,
       author: post.author,
+      avatarID: post.avatarID,
       category: post.category,
       voteScore: 1,
       deleted: false,

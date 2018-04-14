@@ -3,12 +3,22 @@ const POSTS_INIT_STATE = 'POSTS_INIT_STATE'
 const SESSION_INIT = 'SESSION_INIT'
 const DELETE_POST= 'DELETE_POST';
 const LOG_OUT = 'LOG_OUT'
-export {CAT_INIT_STATE,POSTS_INIT_STATE,SESSION_INIT,DELETE_POST,LOG_OUT,categoryInitState,sessionInit,postInitState,deletePost,sessionLogOut}
+const ADD_POST = 'ADD_POST'
+export {CAT_INIT_STATE,POSTS_INIT_STATE,SESSION_INIT,DELETE_POST,ADD_POST,LOG_OUT,categoryInitState,sessionInit,postInitState,deletePost,sessionLogOut,addPost}
 const categoryInitState = ({categories}) => {
 return {
   type: CAT_INIT_STATE,
   payload:{
     categories
+  }
+}
+}
+
+const addPost = (data) =>{
+  return{
+  type: ADD_POST,
+  payload:{
+    ...data
   }
 }
 }
