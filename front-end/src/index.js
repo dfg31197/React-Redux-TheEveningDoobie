@@ -13,10 +13,11 @@ import CreatePost from './components/CreatePost'
 const store = createStore(rootReducer)
 ReactDOM.render(<Provider store={store}><BrowserRouter>
   <div>
-  <Route exact path="/" component={App} />
-  <Route exact path="/posts/:id" component={PostDetails} />
-  <Route path="/" component={Loader} />
-  <Route exact path="/create-post" component = {CreatePost} />
+    <Route exact path="/" component={App} />
+    <Route exact path="/posts/:id" component={PostDetails} />
+    <Route exact path="/create-post" component = {CreatePost} />
+    <Route exact path="/post/:id/edit" component={CreatePost} />
+    <Route path="/" component={Loader} />
   </div>
   </BrowserRouter></Provider>, document.getElementById('root'));
 registerServiceWorker();

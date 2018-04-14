@@ -19,7 +19,7 @@ class PostDetails extends React.Component{
         TheEvening
         <span className="home-doobie">Doobie</span>
         <b className="header-floaters"><Link to="/"><i className="home icon"></i></Link></b>
-        <b onClick={(e)=>{this.toggleCategoryFilter(e)}} className="header-floaters"><i className="edit icon"></i></b>
+        <b className="header-floaters"><Link to={`/post/${post.id}/edit`}><i className="edit icon"></i></Link></b>
         <b className="header-floaters"><img src={userImage} className="small-user-image" /></b>
       </p>
     </div>
