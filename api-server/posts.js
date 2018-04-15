@@ -148,7 +148,7 @@ The lie that in Christianity the created, material world was considered evil or 
 No wonder the feminists are so angry. Everything they believe about the relationship between women and men, humanity and God, is based on a lie about Mary’s relationship with her Son.
 
 I wonder where that lie came from. Or from whom.`,
-    author: 'Alex Johns',
+    author: 'Alex Jones',
     avatarID: 'IMG_2',
     category: 'Politics',
     voteScore: 91473421,

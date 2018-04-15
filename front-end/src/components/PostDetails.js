@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Landing from './Landing'
+import { handleVote } from '../actions/index.js'
 import {utils} from '../utils/UIUX.js'
 import {categoryInitState,postInitState} from '../actions/index.js'
 class PostDetails extends React.Component{
@@ -9,6 +10,14 @@ class PostDetails extends React.Component{
     comment: ''
   }
 
+  registerVote = (id,type) =>{
+    const whatever = type=='upVote'?1:-1
+    console.log(id)
+    const data = {option:type}
+    fetch(`http://localhost:3001/posts/${this.props.match.params.id}`,{method:'POST',body:JSON.stringify(data), headers: { 'Authorization': 'whatever-you-want','content-type':'application/json' } }).then((r)=>r.json()).then((res)=>{
+      this.props.dispatch(handleVote({id:this.props.match.params.id,number:whatever}))
+    });
+}
   PostDetailsUI = () =>{
     const post = this.props.posts.byId[this.props.match.params.id]
     console.log(post)
@@ -43,7 +52,7 @@ class PostDetails extends React.Component{
           <div className="four wide column">Published on {published}</div>
           <div className="four wide column">{post.voteScore} Votes</div>
           <div className="four wide column">{post.commentCount} Comments</div>
-          <div className="four wide column">Upvote | Downvote</div>
+          <div className="four wide column"><span className="plus vote-control" onClick={(e)=>{this.registerVote(this.props.match.params.id,'upVote')}}>Upvote</span> | <span className="minus vote-control" onClick={(e)=>{this.registerVote(this.props.match.params.id,'downVote')}}>Downvote</span></div>
         </div>
       </div>
 

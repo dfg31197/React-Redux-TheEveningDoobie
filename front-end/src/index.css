@@ -89,6 +89,9 @@ z-index: 19;
   background-color: #F1F8E9;
   padding: 50px !important;
 }
+.content{
+  margin-left: 30px !important;
+}
 .readable-content{
 text-align: center;
 padding: 10vh;
@@ -219,6 +222,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
 .error-div{
   width: 70%;
   text-align: center;
+  position: absolute;
+  z-index: -1;
+  top:33%;
+  left:15%;
   margin: 0 auto;
 }
 .title{
@@ -238,6 +245,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
   border-radius: 30%;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 
+}
+
+.vote-control{
+  padding: 5px;
+  cursor: pointer;
+}
+
+.vote-control.plus:hover{
+  color:green !important;
+}
+
+.vote-control.minus:hover{
+  color:red !important;
 }
 .home-doobie{
   font-size: 8vh;

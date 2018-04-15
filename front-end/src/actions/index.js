@@ -4,7 +4,9 @@ const SESSION_INIT = 'SESSION_INIT'
 const DELETE_POST= 'DELETE_POST';
 const LOG_OUT = 'LOG_OUT'
 const ADD_POST = 'ADD_POST'
-export {CAT_INIT_STATE,POSTS_INIT_STATE,SESSION_INIT,DELETE_POST,ADD_POST,LOG_OUT,categoryInitState,sessionInit,postInitState,deletePost,sessionLogOut,addPost}
+const EDIT_POST = 'EDIT_POST'
+const HANDLE_VOTE = 'HANDLE_VOTE'
+export {CAT_INIT_STATE,POSTS_INIT_STATE,SESSION_INIT,DELETE_POST,ADD_POST,LOG_OUT,EDIT_POST,HANDLE_VOTE,categoryInitState,sessionInit,postInitState,deletePost,sessionLogOut,addPost,editPost,handleVote}
 const categoryInitState = ({categories}) => {
 return {
   type: CAT_INIT_STATE,
@@ -21,6 +23,26 @@ const addPost = (data) =>{
     ...data
   }
 }
+}
+
+const handleVote = ({id,number}) =>{
+  return{
+    type:HANDLE_VOTE,
+    payload:{
+      id,
+      number
+    }
+  }
+}
+
+const editPost = (data)=>{
+  console.log(data)
+  return{
+    type: EDIT_POST,
+    payload:{
+      ...data
+    }
+  }
 }
 
 const deletePost = ({id}) =>{
