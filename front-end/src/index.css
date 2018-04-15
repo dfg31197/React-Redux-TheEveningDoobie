@@ -253,7 +253,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
 }
 
 .vote-control.plus:hover{
-  color:green !important;
+  color:lightgreen !important;
 }
 
 .vote-control.minus:hover{

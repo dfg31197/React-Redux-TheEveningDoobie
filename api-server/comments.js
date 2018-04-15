@@ -4,23 +4,58 @@ const posts = require('./posts')
 let db = {}
 
 const defaultData = {
-  "894tuq4ut84ut8v4t8wun89g": {
-    id: '894tuq4ut84ut8v4t8wun89g',
-    parentId: "8xf0y6ziyjabvozdd253nd",
+  "1ifon1coelkdwsabf19jfio1e": {
+    id: '1ifon1coelkdwsabf19jfio1e',
+    parentId: "6abcni6ok3ym7mf1p33lnez",
     timestamp: 1468166872634,
-    body: 'Hi there! I am a COMMENT.',
-    author: 'thingtwo',
-    voteScore: 6,
+    body: 'REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE',
+    author: 'manhater2240',
+    avatarID: 'IMG_4',
+    voteScore: -14562,
     deleted: false,
     parentDeleted: false
   },
-  "8tu4bsun805n8un48ve89": {
-    id: '8tu4bsun805n8un48ve89',
-    parentId: "8xf0y6ziyjabvozdd253nd",
+  "13ihfoienxpw1inoefo": {
+    id: '13ihfoienxpw1inoefo',
+    parentId: "6chingchongni6ok3ymchingnez",
     timestamp: 1469479767190,
-    body: 'Comments. Are. Cool.',
-    author: 'thingone',
-    voteScore: -5,
+    body: 'holy sht that me',
+    author: '420whatyesmokin',
+    avatarID: 'IMG_0',
+    voteScore: 419,
+    deleted: false,
+    parentDeleted: false
+  },
+  "eoqube1eoqube1foqbnwicbq": {
+    id: 'eoqube1eoqube1foqbnwicbq',
+    parentId: "8xracistf0y6ziyjabvozdd253nd",
+    timestamp: 1469449767190,
+    body: 'PATRIARCHY!',
+    author: 'transgenderbipolarsundriedpotato',
+    avatarID: 'IMG_4',
+    voteScore: -31894,
+    deleted: false,
+    parentDeleted: false
+  },
+  "RANDIAPNVEQOBONCAPSINQEQPIFEN": {
+    id: 'RANDIAPNVEQOBONCAPSINQEQPIFEN',
+    parentId: "8xracistf0y6ziyjabvozdd253nd",
+    timestamp: 1469479167190,
+    body: 'how dare you fucrnowe[ojgpviing pienfiefn pewgip nweog wrogi wroig wrio gpwiefqoas jfipean fpaon ipeag pofj npaeif mohterhfacn  faidos ndamd nfc utn af fukn caipsfn io patirachy i fasf nigr faion faisfno 70 cents  efas ina dollar',
+    author: 'soyboy2004',
+    avatarID: 'IMG_4',
+    voteScore: -31894,
+    deleted: false,
+    parentDeleted: false
+  },
+  "OHYEDOGGOFUAKSANPQINOVE": {
+    id: 'OHYEDOGGOFUAKSANPQINOVE',
+    parentId: "8xf0y6ziyjabvozdd253nxxxd",
+    timestamp: 1269479767190,
+    body: '.',
+    author: 'doggo',
+    avatarID: 'IMG_3',
+    voteScore: 8942781347,
     deleted: false,
     parentDeleted: false
   }
@@ -64,6 +99,7 @@ function add (token, comment) {
       body: comment.body,
       author: comment.author,
       parentId: comment.parentId,
+      avatarID: comment.avatarID,
       voteScore: 1,
       deleted: false,
       parentDeleted: false

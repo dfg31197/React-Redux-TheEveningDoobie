@@ -60,7 +60,7 @@ NOTE: This story has been updated. Earlier references to statements by Patty Sol
     category: 'Politics',
     voteScore: 9147,
     deleted: false,
-    commentCount: 2
+    commentCount: 1
   },
   "6chingchongni6ok3ymchingnez": {
     id: '6chingchongni6ok3ymchingnez',
@@ -72,7 +72,7 @@ NOTE: This story has been updated. Earlier references to statements by Patty Sol
     category: 'Controversy',
     voteScore: 914710813,
     deleted: false,
-    commentCount: 0
+    commentCount: 1
   },
 
 
@@ -182,7 +182,7 @@ I wonder where that lie came from. Or from whom.`,
   category: 'Video Games',
   voteScore: 2,
   deleted: false,
-  commentCount: 0
+  commentCount: 1
 },
 }
 

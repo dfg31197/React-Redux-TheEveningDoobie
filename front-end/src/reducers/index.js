@@ -1,6 +1,6 @@
 import {INIT_STATE} from '../actions'
 import { combineReducers } from 'redux'
-import {CAT_INIT_STATE,POSTS_INIT_STATE,SESSION_INIT,DELETE_POST,LOG_OUT,ADD_POST,EDIT_POST,HANDLE_VOTE} from '../actions'
+import {CAT_INIT_STATE,POSTS_INIT_STATE,SESSION_INIT,DELETE_POST,LOG_OUT,ADD_POST,EDIT_POST,HANDLE_VOTE,COMMENTS_INIT,HANDLE_VOTE_COMMENT,ADD_COMMENT} from '../actions'
 import hoigh from '../img/hoigh.jpg'
 import adolf from '../img/adolf.jpg'
 import alex from '../img/alex.jpeg'
@@ -103,6 +103,20 @@ const posts = (state={},action) => {
       },
       allPosts:[action.payload.id,...state.allPosts]
     }
+
+    case ADD_COMMENT:
+      return {
+        ...state,
+        byId:{
+          ...state.byId,
+          [action.parentId]: {
+            ...state.byId[action.parentId],
+            commentCount: state.byId[action.parentId].commentCount + 1
+          }
+        }
+      }
+
+
     case DELETE_POST:
     console.log(state)
     return {
@@ -129,7 +143,7 @@ const posts = (state={},action) => {
     }
 
     case EDIT_POST:
-    const res ={
+    return {
       ...state,
       byId:{
         ...state.byId,
@@ -139,15 +153,52 @@ const posts = (state={},action) => {
         }
       }
     }
-    console.log(res)
-    return res
+
     default:
     return state
   }
 }
 
 const comments = (state={},action) => {
-  return state
+  switch(action.type){
+    case COMMENTS_INIT:
+    return action.payload.data.reduce((acc,val)=>{
+        acc.byId[val.id] = val
+        acc.allComments = [val.id,...acc.allComments]
+        return acc
+      },{byId:{},allComments:[]})
+
+    case HANDLE_VOTE_COMMENT:
+    return{
+      ...state,
+      byId:{
+        ...state.byId,
+        [action.payload.id]:{
+          ...state.byId[action.payload.id],
+          voteScore: state.byId[action.payload.id].voteScore + action.payload.number
+        }
+      }
+    }
+
+    case ADD_COMMENT:
+    return{
+      ...state,
+      byId:{
+        ...state.byId,
+        [action.payload.id]:{
+          ...action.payload,
+          parentId: action.parentId,
+          voteScore: 1,
+          deleted: false,
+          parentDeleted: false
+        }
+      },
+      allComments: [action.payload.id,...state.allComments]
+    }
+
+    default:
+    return state
+  }
 }
 export default combineReducers({
   categories,

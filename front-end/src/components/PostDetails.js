@@ -4,15 +4,58 @@ import { Link } from 'react-router-dom'
 import Landing from './Landing'
 import { handleVote } from '../actions/index.js'
 import {utils} from '../utils/UIUX.js'
+import { commentsInitState , addComment} from '../actions/index.js'
 import {categoryInitState,postInitState} from '../actions/index.js'
+import Comment from './Comment'
 class PostDetails extends React.Component{
   state = {
-    comment: ''
+    comment: '',
+    allowCommentSubmit:false
+  }
+
+  handleInput = (e) =>{
+    this.setState({comment:e.target.value},()=>{
+      if(this.state.comment !== ''){
+        this.setState({allowCommentSubmit:true})
+      }else{
+        this.setState({allowCommentSubmit:false})
+      }
+    })
+
+
+  }
+
+  addComment = (e) =>{
+    e.preventDefault()
+    const timestamp = new Date().getTime()
+    const parentId = this.props.match.params.id
+    const id= `COMMENT${timestamp}${parentId}`
+    const body = this.state.comment
+    const author = this.props.session.name
+    const avatarID = this.props.session.selectedAvatar
+    const data = {
+      timestamp,
+      id,
+      body,
+      author,
+      avatarID
+    }
+    console.log(data)
+    fetch(`http://localhost:3001/comments`,{method:'POST',body:JSON.stringify({...data,parentId}), headers: { 'Authorization': 'whatever-you-want','content-type':'application/json' } }).then((r)=>r.json()).then((res)=>{
+      console.log(res)
+      this.props.dispatch(addComment({parentId,data}))
+    });
+  }
+
+  componentDidMount(){
+    fetch(`http://localhost:3001/posts/${this.props.match.params.id}/comments`,{method:'GET', headers: { 'Authorization': 'whatever-you-want'} }).then((r)=>r.json()).then((res)=>{
+      console.log(res)
+      this.props.dispatch(commentsInitState(this.props.match.params.id,res))
+    })
   }
 
   registerVote = (id,type) =>{
     const whatever = type=='upVote'?1:-1
-    console.log(id)
     const data = {option:type}
     fetch(`http://localhost:3001/posts/${this.props.match.params.id}`,{method:'POST',body:JSON.stringify(data), headers: { 'Authorization': 'whatever-you-want','content-type':'application/json' } }).then((r)=>r.json()).then((res)=>{
       this.props.dispatch(handleVote({id:this.props.match.params.id,number:whatever}))
@@ -20,7 +63,6 @@ class PostDetails extends React.Component{
 }
   PostDetailsUI = () =>{
     const post = this.props.posts.byId[this.props.match.params.id]
-    console.log(post)
     const userImage = this.props.images.importantImagery.byId[this.props.session.selectedAvatar].imageURL
     const published = utils.getDate(post.timestamp)
     return (<div>    <div className="article-header">
@@ -68,10 +110,10 @@ class PostDetails extends React.Component{
               <div className="description">
                 <form className="ui reply form">
                   <div className="field">
-                    <textarea placeholder="Write your thoughts on the article!"></textarea>
+                    <textarea placeholder="Write your thoughts on the article!" value={this.state.comment} onChange={(e)=>{this.handleInput(e)}}></textarea>
                   </div>
-                  <div className="ui blue labeled submit icon button">
-                    <i className="icon edit"></i> Add Comment
+                  <div>
+                    <button disabled = {!this.state.allowCommentSubmit} onClick={(e)=>{this.addComment(e)}}>Add Comment!</button>
                   </div>
                 </form>
               </div>
@@ -79,28 +121,14 @@ class PostDetails extends React.Component{
               </div>
             </div>
           </div>
-          <div className="item add-border">
-            <div className="image">
-              <img src={userImage} className="round-comment-image" />
-            </div>
-            <div className="content">
-              <a className="header">Header</a>
-              <div className="meta">
-                <span>Description</span>
-              </div>
-              <div className="description">
-                <p></p>
-              </div>
-              <div className="extra">
-              </div>
-            </div>
-          </div>
+          {this.props.comments.hasOwnProperty('byId') && this.props.comments.allComments.map((comment)=><Comment key={`${comment}COMMENT`} for={this.props.match.params.id} data={this.props.comments.byId[comment]} />)}
         </div>
       </div>
     </div>
   )}
 
 render(){
+  console.log(this.props)
   return this.props.session.enter
   ? this.PostDetailsUI()
   : <Landing />
@@ -111,11 +139,12 @@ render(){
 
 const matchStateToProps = (state,own) =>{
 
-  const {posts,session,images} = state;
+  const {posts,session,images,comments} = state;
   return {
     posts,
     session,
     images,
+    comments
   }
 }
 

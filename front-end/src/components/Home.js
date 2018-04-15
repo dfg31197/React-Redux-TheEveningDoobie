@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom'
 import { sessionLogOut } from '../actions/index.js'
 class Home extends React.Component{
   state={
-    displayCategory: false
+    displayCategory: false,
+    selectedCategory: 'all'
   }
 
 toggleCategoryFilter = (e) =>{

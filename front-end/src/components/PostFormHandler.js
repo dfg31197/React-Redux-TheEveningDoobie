@@ -45,22 +45,22 @@ class PostFormHandler extends React.Component{
   }
   getImageURL= (id) => this.props.images.importantImagery.byId[id].imageURL
   handleInput = (type,data)=>{
-    this.setState({[type]:data})
-    console.log(this.state.author)
-    if(this.state.editMode){
-      if(this.state.category !== '' && this.state.title !== '' && this.state.body !== '' && this.state.body.length >50 && this.state.author != ''){
-        this.setState({allow:true})
-      }else{
-        this.setState({allow:false})
-      }
+    this.setState({[type]:data},()=>{
+      if(this.state.editMode){
+        if(this.state.category !== '' && this.state.title !== '' && this.state.body !== '' && this.state.body.length >50 && this.state.author != ''){
+          this.setState({allow:true})
+        }else{
+          this.setState({allow:false})
+        }
 
-    }else{
-      if(this.state.category !== '' && this.state.title !== '' && this.state.body !== '' && this.state.body.length >50){
-        this.setState({allow:true})
       }else{
-        this.setState({allow:false})
+        if(this.state.category !== '' && this.state.title !== '' && this.state.body !== '' && this.state.body.length >50){
+          this.setState({allow:true})
+        }else{
+          this.setState({allow:false})
+        }
       }
-    }
+    })
 
   }
 
