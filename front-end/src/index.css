@@ -181,7 +181,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', end
   padding: 10px;
   min-height: 1000px;
 }
-
+.comment-control-floaters:hover{
+color:blue !important;
+font-size: 20px !important;
+transition: 0.2s all;
+cursor: pointer;
+}
 .category-cards:hover{
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     background-color: #B2FF59;
@@ -255,7 +260,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
   padding: 5px;
   cursor: pointer;
 }
-
+.comment-control-floaters span:hover{
+  color:blue !important;
+}
 .vote-control.plus:hover{
   color:lightgreen !important;
 }

@@ -1,6 +1,6 @@
 import {INIT_STATE} from '../actions'
 import { combineReducers } from 'redux'
-import {CAT_INIT_STATE,POSTS_INIT_STATE,SESSION_INIT,DELETE_POST,LOG_OUT,ADD_POST,EDIT_POST,HANDLE_VOTE,COMMENTS_INIT,HANDLE_VOTE_COMMENT,ADD_COMMENT} from '../actions'
+import {CAT_INIT_STATE,POSTS_INIT_STATE,SESSION_INIT,DELETE_POST,LOG_OUT,ADD_POST,EDIT_POST,HANDLE_VOTE,COMMENTS_INIT,HANDLE_VOTE_COMMENT,ADD_COMMENT,UPDATE_COMMENT} from '../actions'
 import hoigh from '../img/hoigh.jpg'
 import adolf from '../img/adolf.jpg'
 import alex from '../img/alex.jpeg'
@@ -117,6 +117,8 @@ const posts = (state={},action) => {
       }
 
 
+
+
     case DELETE_POST:
     console.log(state)
     return {
@@ -195,6 +197,22 @@ const comments = (state={},action) => {
       },
       allComments: [action.payload.id,...state.allComments]
     }
+
+    case UPDATE_COMMENT:
+
+    return {
+      ...state,
+      byId:{
+        ...state.byId,
+        [action.payload.id]:{
+          ...state.byId[action.payload.id],
+          author: action.payload.author,
+          timestamp: action.payload.timestamp,
+          body: action.payload.body
+        }
+      }
+    }
+    return state;
 
     default:
     return state

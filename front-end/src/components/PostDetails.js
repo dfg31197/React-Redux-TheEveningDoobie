@@ -47,16 +47,17 @@ class PostDetails extends React.Component{
       author,
       avatarID
     }
-    console.log(data)
+    this.setState({comment:''})
+
     fetch(`http://localhost:3001/comments`,{method:'POST',body:JSON.stringify({...data,parentId}), headers: { 'Authorization': 'whatever-you-want','content-type':'application/json' } }).then((r)=>r.json()).then((res)=>{
-      console.log(res)
+
       this.props.dispatch(addComment({parentId,data}))
     });
   }
 
   componentDidMount(){
     fetch(`http://localhost:3001/posts/${this.props.match.params.id}/comments`,{method:'GET', headers: { 'Authorization': 'whatever-you-want'} }).then((r)=>r.json()).then((res)=>{
-      console.log(res)
+
       this.props.dispatch(commentsInitState(this.props.match.params.id,res))
     })
   }
@@ -135,7 +136,7 @@ class PostDetails extends React.Component{
   )}
 
 render(){
-  console.log(this.props)
+
   return this.props.session.enter
   ? this.PostDetailsUI()
   : <Landing />

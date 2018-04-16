@@ -196,7 +196,7 @@ class PostFormHandler extends React.Component{
             </div>
           </div>
         )}
-        {console.log(this.state.editMode)}
+        
         {this.state.editMode?
           this.componentEditUI()
         : this.componentCreateUI()

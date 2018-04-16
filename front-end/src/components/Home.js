@@ -57,7 +57,6 @@ logOut = () =>{
 }
   render(){
     let counter = 0;
-    console.log(this.props)
 
     const userImage = this.props.images.importantImagery.byId[this.props.session.selectedAvatar].imageURL
     const category = this.props.categories.byId

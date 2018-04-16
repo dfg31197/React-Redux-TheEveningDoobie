@@ -38,7 +38,7 @@ Now, do you have a stupid question?
     avatarID: 'IMG_6',
     voteScore: 149302,
     deleted: false,
-    commentCount: 4
+    commentCount: 0
   },
   "6abcni6ok3ym7mf1p33lnez": {
     id: '6abcni6ok3ym7mf1p33lnez',

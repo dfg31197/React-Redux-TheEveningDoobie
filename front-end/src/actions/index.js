@@ -7,9 +7,10 @@ const LOG_OUT = 'LOG_OUT'
 const ADD_POST = 'ADD_POST'
 const EDIT_POST = 'EDIT_POST'
 const HANDLE_VOTE = 'HANDLE_VOTE'
+const UPDATE_COMMENT = 'UPDATE_COMMENT'
 const HANDLE_VOTE_COMMENT = 'HANDLE_VOTE_COMMENT'
 const ADD_COMMENT = 'ADD_COMMENT'
-export {CAT_INIT_STATE,POSTS_INIT_STATE,SESSION_INIT,DELETE_POST,ADD_POST,LOG_OUT,EDIT_POST,HANDLE_VOTE,COMMENTS_INIT,HANDLE_VOTE_COMMENT,ADD_COMMENT,categoryInitState,sessionInit,postInitState,deletePost,sessionLogOut,addPost,editPost,handleVote,commentsInitState,handleVoteComments,addComment}
+export {CAT_INIT_STATE,POSTS_INIT_STATE,SESSION_INIT,DELETE_POST,ADD_POST,LOG_OUT,EDIT_POST,HANDLE_VOTE,COMMENTS_INIT,HANDLE_VOTE_COMMENT,ADD_COMMENT,UPDATE_COMMENT,categoryInitState,sessionInit,postInitState,deletePost,sessionLogOut,addPost,editPost,handleVote,commentsInitState,handleVoteComments,addComment,actionUpdateComment}
 const categoryInitState = ({categories}) => {
 return {
   type: CAT_INIT_STATE,
@@ -17,6 +18,13 @@ return {
     categories
   }
 }
+}
+
+const actionUpdateComment = (payload) =>{
+  return {
+    type: UPDATE_COMMENT,
+    payload
+  }
 }
 
 const addPost = (data) =>{
