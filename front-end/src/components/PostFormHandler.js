@@ -43,6 +43,12 @@ class PostFormHandler extends React.Component{
       })
     }
   }
+
+  componentWillMount(){
+    if(this.props.session.enter === false){
+      this.props.history.push('/login')
+    }
+  }
   getImageURL= (id) => this.props.images.importantImagery.byId[id].imageURL
   handleInput = (type,data)=>{
     this.setState({[type]:data},()=>{
@@ -171,8 +177,8 @@ class PostFormHandler extends React.Component{
   }
 
   render(){
-    console.log(this.props)
-    return this.state.deleted || !this.props.posts.hasOwnProperty('byId')?<Error />:this.props.session.enter? <div className="ui fluid-container full-size" style={{background: `url(${wallpaper}) center`}}>
+
+    return this.state.deleted || !this.props.posts.hasOwnProperty('byId')?<Error /> : <div className="ui fluid-container full-size" style={{background: `url(${wallpaper}) center`}}>
       <div className="my-header create-header">
         <p className="title">
           TheEvening
@@ -201,7 +207,6 @@ class PostFormHandler extends React.Component{
         </div>
       </form>
     </div>
-    : <Landing />
 
       }
   }

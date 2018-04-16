@@ -42,7 +42,7 @@ const images = (state=imageState,action)=>{
 const sessionState = {
   avatarsURL:'',
   name:'',
-  selectedAvatar: hoigh,
+  selectedAvatar: 'IMG_0',
   high: 'Yes',
   enter: false
 }

@@ -8,14 +8,13 @@ import Home from './Home.js'
 import {categoryInitState,postInitState} from '../actions'
 class App extends Component {
 
-  render() {
-    const keys = this.props.categories.allCategories
-    const {byId} = this.props.categories
+  componentWillMount(){
+    this.props.history.push('/home')
+  }
 
+  render() {
     return (
-      this.props.session.enter
-      ?<Home />
-      : <Landing />
+      ""
     )
   }
 }

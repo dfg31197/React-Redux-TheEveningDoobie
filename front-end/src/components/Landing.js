@@ -14,13 +14,17 @@ class Landing extends React.Component{
   goToDashboard = (e) =>{
     if(this.state.name !== '' && this.state.selectedAvatar !== ''){
       this.props.dispatch(sessionInit({name:this.state.name,selectedAvatar:this.state.selectedAvatar}))
+
+      this.props.history.goBack()
     }
   }
 
   selectThisWarrior = (warrior) =>{
     this.setState({selectedAvatar: warrior})
   }
+
   render(){
+    console.log(this.props.history)
     const warriors = this.props.session.avatarsURL
     return (
 

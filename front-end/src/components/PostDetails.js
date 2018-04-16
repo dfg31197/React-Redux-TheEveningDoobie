@@ -8,6 +8,13 @@ import { commentsInitState , addComment} from '../actions/index.js'
 import {categoryInitState,postInitState} from '../actions/index.js'
 import Comment from './Comment'
 class PostDetails extends React.Component{
+
+  componentWillMount(){
+    if(this.props.session.enter === false){
+      this.props.history.push('/login')
+    }
+  }
+
   state = {
     comment: '',
     allowCommentSubmit:false

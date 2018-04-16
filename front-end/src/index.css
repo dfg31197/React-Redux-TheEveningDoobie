@@ -10,6 +10,10 @@ body {
   text-align: center;
 }
 
+.selected-category{
+  background-color: #B2FF59 !important;
+}
+
 .full-size{
   position: absolute;
   top: 0;
@@ -175,7 +179,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', end
 }
 .all-posts{
   padding: 10px;
-
+  min-height: 1000px;
 }
 
 .category-cards:hover{

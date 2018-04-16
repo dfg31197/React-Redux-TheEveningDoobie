@@ -9,9 +9,11 @@ componentDidMount(){
   }).then((x)=>{
     this.props.dispatch(categoryInitState(x))
     return fetch('http://localhost:3001/posts',{ headers: { 'Authorization': 'whatever-you-want' } }).then((posts)=>{
+
       return posts.json()
     })
   }).then((res)=>{
+    console.log(res)
     this.props.dispatch(postInitState({posts:res}))
   })
 

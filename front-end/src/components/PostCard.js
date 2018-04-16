@@ -49,7 +49,7 @@ handleDelete = (e) =>{
 }
 
 const matchStateToProps = (state,own) => {
-
+console.log(state)
   return {
     post: {
       ...state.posts.byId[own.id],
