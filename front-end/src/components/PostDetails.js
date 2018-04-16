@@ -129,7 +129,9 @@ class PostDetails extends React.Component{
               </div>
             </div>
           </div>
-          {this.props.comments.hasOwnProperty('byId') && this.props.comments.allComments.map((comment)=><Comment key={`${comment}COMMENT`} for={this.props.match.params.id} data={this.props.comments.byId[comment]} />)}
+          {this.props.comments.hasOwnProperty('byId') && this.props.comments.allComments.map((comment)=>{
+            return this.props.comments.byId[comment].deleted?"":<Comment key={`${comment}COMMENT`} for={this.props.match.params.id} data={this.props.comments.byId[comment]} />
+          })}
         </div>
       </div>
     </div>

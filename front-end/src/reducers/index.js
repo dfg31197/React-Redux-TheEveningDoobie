@@ -1,6 +1,6 @@
 import {INIT_STATE} from '../actions'
 import { combineReducers } from 'redux'
-import {CAT_INIT_STATE,POSTS_INIT_STATE,SESSION_INIT,DELETE_POST,LOG_OUT,ADD_POST,EDIT_POST,HANDLE_VOTE,COMMENTS_INIT,HANDLE_VOTE_COMMENT,ADD_COMMENT,UPDATE_COMMENT} from '../actions'
+import {CAT_INIT_STATE,POSTS_INIT_STATE,SESSION_INIT,DELETE_POST,LOG_OUT,ADD_POST,EDIT_POST,HANDLE_VOTE,COMMENTS_INIT,HANDLE_VOTE_COMMENT,ADD_COMMENT,UPDATE_COMMENT,DELETE_COMMENT} from '../actions'
 import hoigh from '../img/hoigh.jpg'
 import adolf from '../img/adolf.jpg'
 import alex from '../img/alex.jpeg'
@@ -117,10 +117,20 @@ const posts = (state={},action) => {
       }
 
 
+    case DELETE_COMMENT:
+    return {
+      ...state,
+      byId:{
+        ...state.byId,
+        [action.payload.parentId]:{
+          ...state.byId[action.payload.parentId],
+          commentCount: state.byId[action.payload.parentId].commentCount -1
+        }
+      }
+    }
 
 
     case DELETE_POST:
-    console.log(state)
     return {
       ...state,
       byId:{
@@ -182,6 +192,7 @@ const comments = (state={},action) => {
       }
     }
 
+
     case ADD_COMMENT:
     return{
       ...state,
@@ -199,7 +210,6 @@ const comments = (state={},action) => {
     }
 
     case UPDATE_COMMENT:
-
     return {
       ...state,
       byId:{
@@ -212,7 +222,19 @@ const comments = (state={},action) => {
         }
       }
     }
-    return state;
+
+    case DELETE_COMMENT:
+    return {
+      ...state,
+      byId:{
+        ...state.byId,
+        [action.payload.id]:{
+          ...state.byId[action.payload.id],
+          deleted: true
+        }
+      }
+    }
+
 
     default:
     return state

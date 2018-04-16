@@ -10,7 +10,8 @@ const HANDLE_VOTE = 'HANDLE_VOTE'
 const UPDATE_COMMENT = 'UPDATE_COMMENT'
 const HANDLE_VOTE_COMMENT = 'HANDLE_VOTE_COMMENT'
 const ADD_COMMENT = 'ADD_COMMENT'
-export {CAT_INIT_STATE,POSTS_INIT_STATE,SESSION_INIT,DELETE_POST,ADD_POST,LOG_OUT,EDIT_POST,HANDLE_VOTE,COMMENTS_INIT,HANDLE_VOTE_COMMENT,ADD_COMMENT,UPDATE_COMMENT,categoryInitState,sessionInit,postInitState,deletePost,sessionLogOut,addPost,editPost,handleVote,commentsInitState,handleVoteComments,addComment,actionUpdateComment}
+const DELETE_COMMENT = 'DELETE_COMMENT'
+export {CAT_INIT_STATE,POSTS_INIT_STATE,SESSION_INIT,DELETE_POST,ADD_POST,LOG_OUT,EDIT_POST,HANDLE_VOTE,COMMENTS_INIT,HANDLE_VOTE_COMMENT,ADD_COMMENT,UPDATE_COMMENT,DELETE_COMMENT,categoryInitState,sessionInit,postInitState,deletePost,sessionLogOut,addPost,editPost,handleVote,commentsInitState,handleVoteComments,addComment,actionUpdateComment,actionDeleteComment}
 const categoryInitState = ({categories}) => {
 return {
   type: CAT_INIT_STATE,
@@ -46,6 +47,13 @@ const handleVote = ({id,number}) =>{
   }
 }
 
+const actionDeleteComment = (payload) =>{
+  return {
+    type:DELETE_COMMENT,
+    payload
+  }
+}
+
 const commentsInitState = (id,data) => ({
   type: COMMENTS_INIT,
   payload:{
@@ -73,7 +81,6 @@ return {
 }
 
 const editPost = (data)=>{
-  console.log(data)
   return{
     type: EDIT_POST,
     payload:{

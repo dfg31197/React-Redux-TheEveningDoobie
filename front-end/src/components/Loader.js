@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import {categoryInitState,postInitState} from '../actions/index.js'
 class Loader extends React.Component{
 componentDidMount(){
-  console.log("loader")
+
   fetch('http://localhost:3001/categories',{ headers: { 'Authorization': 'whatever-you-want' } }).then((res)=>{
     return res.json()
   }).then((x)=>{
@@ -13,7 +13,7 @@ componentDidMount(){
       return posts.json()
     })
   }).then((res)=>{
-    console.log(res)
+
     this.props.dispatch(postInitState({posts:res}))
   })
 

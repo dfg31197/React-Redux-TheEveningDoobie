@@ -24,7 +24,6 @@ class Landing extends React.Component{
   }
 
   render(){
-    console.log(this.props.history)
     const warriors = this.props.session.avatarsURL
     return (
 

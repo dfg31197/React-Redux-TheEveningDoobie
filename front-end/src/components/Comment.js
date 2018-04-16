@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { handleVoteComments ,actionUpdateComment} from '../actions/index.js'
+import { handleVoteComments ,actionUpdateComment, actionDeleteComment} from '../actions/index.js'
 import {utils} from '../utils/UIUX.js'
 class Comment extends React.Component{
 
@@ -41,7 +41,9 @@ updateComment = (id,parentId) =>{
 }
 
 deleteComment = (id,parentId) =>{
-
+  fetch(`http://localhost:3001/comments/${id}`,{method:'DELETE', headers: { 'Authorization': 'whatever-you-want'} }).then((r)=>r.json()).then((res)=>{
+    this.props.dispatch(actionDeleteComment({id,parentId}))
+  });
 }
 
 changeEditableState = ()=>{
@@ -55,7 +57,6 @@ componentDidMount(){
 handleInput = (type,val) =>{
 
   this.setState({[type]:val},()=>{
-      console.log(this.state)
     if(this.state.body !== '' && this.state.author !== ''){
       this.setState({allowSubmit:true})
     }else{

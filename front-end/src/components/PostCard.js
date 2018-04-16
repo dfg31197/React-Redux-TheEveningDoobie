@@ -8,7 +8,6 @@ class PostCard extends React.Component{
 
   registerVote = (type) =>{
     const whatever = type=='upVote'?1:-1
-    console.log(whatever)
     const data = {option:type}
     fetch(`http://localhost:3001/posts/${this.props.post.id}`,{method:'POST',body:JSON.stringify(data), headers: { 'Authorization': 'whatever-you-want','content-type':'application/json' } }).then((r)=>r.json()).then((res)=>{
       this.props.dispatch(handleVote({id:this.props.post.id,number:whatever}))
@@ -49,7 +48,6 @@ handleDelete = (e) =>{
 }
 
 const matchStateToProps = (state,own) => {
-console.log(state)
   return {
     post: {
       ...state.posts.byId[own.id],

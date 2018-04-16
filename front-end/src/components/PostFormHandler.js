@@ -115,9 +115,9 @@ class PostFormHandler extends React.Component{
               voteScore,
               deleted:false}
         this.props.dispatch(addPost(data))
+        this.setState({publishStatus:'Publish!'})
         setTimeout(()=>{
           this.props.history.push('/')
-          this.setState({publishStatus:'Publish!'})
         },1000)
 
       })
@@ -196,7 +196,7 @@ class PostFormHandler extends React.Component{
             </div>
           </div>
         )}
-        
+
         {this.state.editMode?
           this.componentEditUI()
         : this.componentCreateUI()

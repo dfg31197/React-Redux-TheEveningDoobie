@@ -19,7 +19,7 @@ class App extends Component {
   }
 }
 const matchStateToProps = (state,own) => {
-  //console.log(state)
+
   return state
 }
 export default connect(matchStateToProps)(App);
