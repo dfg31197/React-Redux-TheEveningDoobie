@@ -28,7 +28,7 @@ handleDelete = (e) =>{
       <img src={this.props.post.avatarURL} className="author-image"/>
     </div>
     <div className="content">
-      <Link to={`/posts/${this.props.post.id}`} className="my-header"><h2>{this.props.post.title}</h2></Link>
+      <Link to={`/home/${this.props.post.category}/${this.props.post.id}`} className="my-header"><h2>{this.props.post.title}</h2></Link>
       <div className="meta">
         <span>{this.props.post.author} | {this.props.post.category}</span>
         <p></p>

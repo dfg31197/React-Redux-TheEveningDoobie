@@ -70,8 +70,10 @@ class PostDetails extends React.Component{
     });
 }
   PostDetailsUI = () =>{
+    console.log(this.props.match)
     const post = this.props.posts.byId[this.props.match.params.id]
     const userImage = this.props.images.importantImagery.byId[this.props.session.selectedAvatar].imageURL
+    console.log(post)
     const published = utils.getDate(post.timestamp)
     return (<div>    <div className="article-header">
       <p className="title">
@@ -148,7 +150,7 @@ render(){
 
 
 const matchStateToProps = (state,own) =>{
-
+  console.log(state,own)
   const {posts,session,images,comments} = state;
   return {
     posts,

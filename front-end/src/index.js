@@ -19,12 +19,12 @@ ReactDOM.render(<Provider store={store}><BrowserRouter>
     <Route exact path="/" component={App} />
     <Route exact path="/home" component={Home} />
     <Route exact path="/home/:category" component={Home} />
-      <Route exact path="/login" component={Landing} />
-      <Route exact path="/posts/:id" component={PostDetails} />
-      <Route exact path="/create-post" component = {PostFormHandler} />
-      <Route exact path="/post/:id/edit" component={PostFormHandler} />
-      <Route path="/" component={Loader} />
-      <Route exact path='*' component={Error} />
+    <Route exact path="/login" component={Landing} />
+    <Route exact path="/home/:category/:id" component={PostDetails} />
+    <Route exact path="/create-post" component = {PostFormHandler} />
+    <Route exact path="/post/:id/edit" component={PostFormHandler} />
+    <Route path="/" component={Loader} />
+    <Route exact path='*' component={Error} />
     </div>
   </BrowserRouter></Provider>, document.getElementById('root'));
   registerServiceWorker();
